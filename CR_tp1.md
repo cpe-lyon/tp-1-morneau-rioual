@@ -38,7 +38,7 @@ finalement `touch Dossier2/Dossier2.2/{Fichier2,Fichier3}`.
 
 9. Il faut utiliser la commande `rmdir Dossier` pour supprimer un répertoire.
 
-10. La commande `rmdir Dossier2` refuse de s'éxécuter sur le motif que le répertoire n'est pas vide.
+10. La commande `rmdir Dossier2` refuse de s'éxécuter au motif que le répertoire n'est pas vide.
 
 11. Il faut utiliser la commande `rm -r Dossier2` pour supprimer le Dossier2 et tout son contenu.
 
@@ -46,33 +46,34 @@ finalement `touch Dossier2/Dossier2.2/{Fichier2,Fichier3}`.
 
 1. La commande `date` permet d'afficher l'heure, la commande `time _command_` permet de mesurer le temps de réalisation de la commande.
 
-2. Le fichier commançant par . sont cachés des recherches normales. (ls)
+2. Les fichiers commançant par . sont cachés des recherches normales. (par ls)
 
-3. /usr/bin/ls
+3. Le programme `ls` se situe en /usr/bin/ls
 
-4. Affiche les dossiers et leus informations (droits, dernière modif). Pas d'entrée manuel, ll alias de `ls -alF`.
+4. `ll` Affiche les répertoire, les fichiers et leurs informations (droits, dernière modif...). Elle n'a pas d'entrée manuel, ll est un alias (un raccourci) de `ls -alF`.
 
-5. `ls bin`
+5. `ls bin` permet d'afficher le contenu du répertoire bin depuis le répertoire parent.
 
-6. Affiche le contenu du repertoire parent
+6. La commande `ls ..` affiche le contenu du répertoire parent.
 
-7. `pwd`
+7. La commande `pwd` affiche le path du répertoire courant.
 
-8. elle écrit 'yo' dans le fichier plop (qui peut être créer). les données de plop sont écrasées
+8. La commande `echo yo > plop` écrit 'yo' dans le fichier 'plop' (le créant si il n'existe pas). les données de plop sont écrasées par la commande, après 2 éxécutions le fichier 'plop' contiendra 'yo'.
 
-9. n'écrase pas, ajoute à la fin
+9. La commande `echo yo >> plop` ajoute 'yo' à la fin du fichier 'plop' (le créant si il n'existe pas). En partant sans fichier 'plop', après 2 éxécutions le fichier 'plop' contiendra 'yoyo'.
 
-10. Donne la nature de l'élément
+10. La commande `file nom` donne la nature de l'objet nom (répertoire, fichier...)
 
-11. `echo 'Hello Toto' > toto` . Ce qui est écrit sur tot passe sur titi. Effacer toto ne change pas titi.
+11. On créer le fichier toto avec la commande `echo 'Hello Toto' > toto`. On créé ensuite un lien titi vers ce fichier
+avec la commande `ln toto titi`, ce qui a pour effet que ce qui est écrit sur toto est copié sur titi. Effacer toto ne change pas titi.
 
-12. Les deux on même contenu, supprimer titi vide tutu.
+12. On utilise la commande `ln -s titi tutu` pour créer un lien symbolique entre titi et tutu. Les deux désignent le même fichier, supprimer titi rend tutu inutile car son contenu n'existe plus.
 
-13. `cat var/log/syslog` ctrl+s, ctrl+q
+13. On affiche à l'écran var/log/syslog avec `cat var/log/syslog`. Les raccourcis `ctrl+s` et `ctrl+q` permettent d'arrêter le défilement de l'écran.
 
-14. "head -n 5 var/log/syslog"
-"tail -n 15 var/log/syslog"
-"head -n 20 var/lo/syslog | tail -n 10"
+14. La commande `head -n 5 var/log/syslog` permet d'afficher les 5 premières lignes du fichier 'syslog'.
+La commande `tail -n 15 var/log/syslog` permet d'afficher les 5 dernières lignes.
+La commande `head -n 20 var/lo/syslog | tail -n 10` permet d'affiche de la ligne 10 à la ligne 20.
 
 15. affiche la mémoire tempon page par page
 
