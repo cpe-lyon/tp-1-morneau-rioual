@@ -75,14 +75,49 @@ avec la commande `ln toto titi`, ce qui a pour effet que ce qui est écrit sur t
 La commande `tail -n 15 var/log/syslog` permet d'afficher les 5 dernières lignes.
 La commande `head -n 20 var/lo/syslog | tail -n 10` permet d'affiche de la ligne 10 à la ligne 20.
 
-15. affiche la mémoire tempon page par page
+15. La commande `dmesg | less` affiche la mémoire tempon page par page.
 
-16. contient les mots de passe, `man ect/passwd`
+16. On affiche à l'écran le fichier 'passwd' avec `cat ect/passwd`, celui ci contient les mots de passe, on peut afficher sa page de manuel avec `man ect/passwd`.
 
-17. `cut -c1 /ect/passwd" | sort -r`
+17. La commande `cut -c1 /ect/passwd" | sort -r` permet de récupérer la première colonne du fichier triée en ordre alphabétique inverse.
 
-18. `getent passwd | grep -c bin/bash`
+18. La commande `getent passwd | grep -c bin/bash` permet d'obtenir l nombre d'utilisateur de l'appareil.
 
-19. `cat usr/bin/man | grep conversion | wc -l`
+19. La commande `cat usr/bin/man | grep conversion | wc -l` permet d'obtenir le nombre de page du manuel contenant le mot 'conversion' dans leur description.
 
-20. 
+20. La commande `find / -name passwd -type f` en mode admin permet de trouver tous les fichiers 'passwd' sur la machine.
+
+21. La commande `find / -name passwd -type f >~/list_passwd_files.txt 2>> /dev/null` fait en sorte que les résultats précédents soient enregistrés dans le fichier '~/list_passwd_files.txt et les erreurs redirigées vers /dev/null.
+
+22) La commande `grep "alias ll" -r` nous sort: 'output : .bashrc:alias ll='ls -alF'. Elle permet de localiser ou est défini l'alias `ll`.
+
+23) La commande `locate history.log` nous sort: 'output : /var/log/apt/history.log'. Elle permet de localiser le fichier history.log.
+
+24) La commande `locate nom` ne permet pas de localiser un fichier dans notre dossier personnel car `locate` cherche dans un dossier
+contenant les fichiers/dossierset mis à jour avec un certain délai.
+
+## Exercice 3:
+
+1) On copie le fichier 'syslog.txt' dans notre répertoire personnel avec `cp /var/log/syslog log.txt`. On l'ouvre ensuite avec `nano syslog.txt`.
+
+2) On remplace les occurence de 'kernel' par 'noyau' en faisant CTRL+R, puis search : kernel, entrée, puis replace with : noyau, entrée puis A.
+
+3) On déplce les 10 premières lignes vers la fin du fichier en faisant Alt +A, puis selectionner le nombre de lignes voulues, puis CTRL + K pour couper/copier. On se déplace à la fin avec CTRL + \_, puis CTRL +V, enfin on colle le texte avec : CTRL+U
+
+4) On annule la dernère action avec : ALT+U
+
+5) On sauvegarde avec: ctrl + s, et quitte avec: ctrl +x
+
+exercice 4 
+
+1) On créer une copie du fichier '.bashrc' avec `sudo cp ~/.bashrc ~/.bashrc_backup`.
+
+2) Une fois dans nano, on utilise le raccourci WTRL+W pour trouver la ligne voulu ('force_color_prompt=yes') et on la décommente.
+
+3) La commande `source .bashrc` permet de recharger le fichier '.bashrc'. On voit que le root@serveur devient vert. 
+
+4) On modifie avec nano le fichier bashrc en remplacant la ligne :
+    `PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$`
+par
+    `PS1='${debian_chroot:+($debian_chroot)}\e[95m[\t]\e[0m - \[\033[01;32m\]\u@\h\[\033[00m\]:\e[36m\w\[\033[00m\]\$`
+
