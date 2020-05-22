@@ -79,7 +79,7 @@ La commande `head -n 20 var/lo/syslog | tail -n 10` permet d'affiche de la ligne
 
 16. On affiche à l'écran le fichier 'passwd' avec `cat ect/passwd`, celui ci contient les mots de passe, on peut afficher sa page de manuel avec `man ect/passwd`.
 
-17. La commande `cut -c1 /ect/passwd" | sort -r` permet de récupérer la première colonne du fichier triée en ordre alphabétique inverse.
+17. La commande `cut -c1 /etc/passwd" | sort -r` permet de récupérer la première colonne du fichier triée en ordre alphabétique inverse.
 
 18. La commande `getent passwd | grep -c bin/bash` permet d'obtenir l nombre d'utilisateur de l'appareil.
 
